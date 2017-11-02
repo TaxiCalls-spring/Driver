@@ -11,10 +11,11 @@ import com.taxicalls.driver.services.NotificationService;
 import com.taxicalls.driver.services.BillingService;
 import com.taxicalls.driver.services.PassengerService;
 import com.taxicalls.driver.services.TripService;
+import com.taxicalls.protocol.Response;
 import java.util.logging.Level;
+import org.springframework.web.bind.annotation.RequestBody;
 
 @RestController
-@RequestMapping("/trips")
 public class TripsResource {
 
     protected static final Logger LOGGER = Logger.getLogger(TripsResource.class.getName());
@@ -31,13 +32,14 @@ public class TripsResource {
     @Autowired
     private BillingService billingService;
 
-    @RequestMapping(method = RequestMethod.POST, value = "/")
-    public void acceptTrip(Trip trip) {
+    @RequestMapping(method = RequestMethod.POST, value = "/trips")
+    public Response acceptTrip(@RequestBody Trip trip) {
         LOGGER.log(Level.INFO, "acceptTrip() invoked");
         notificationService.acceptTrip(trip);
         passengerService.acceptTrip(trip);
         billingService.acceptTrip(trip);
         tripService.acceptTrip(trip);
+        return Response.successful();
     }
 
 }

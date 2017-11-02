@@ -48,7 +48,7 @@ public class DriverService {
         return drivers;
     }
 
-    public Driver getDriver(Integer id) {
+    public Driver getDriver(Long id) {
         Driver driver = driverRepository.findOne(id);
         return driver;
     }

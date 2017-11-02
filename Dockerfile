@@ -4,8 +4,8 @@ MAINTAINER rmeloca@gmail.com
 
 WORKDIR /app
 
-ADD ./target/Passenger.jar /app/
+ADD ./target/Driver.jar /app/
 
 EXPOSE 8080
 
-CMD ["java", "-Xmx200m", "-jar", "/app/Passenger.jar"]
+CMD ["java", "-Xmx200m", "-jar", "/app/Driver.jar"]
