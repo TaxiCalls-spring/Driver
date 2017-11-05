@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @FeignClient(name = "notification")
 public interface NotificationService {
 
-    @RequestMapping(method = RequestMethod.POST, value = "/notifications")
+    @RequestMapping(method = RequestMethod.POST, value = "/trips")
     public Response acceptTrip(Trip trip);
 
 }

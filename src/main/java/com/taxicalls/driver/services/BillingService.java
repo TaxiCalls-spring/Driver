@@ -13,6 +13,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @FeignClient(name = "billing")
 public interface BillingService {
 
-    @RequestMapping(method = RequestMethod.POST, value = "/billings")
+    @RequestMapping(method = RequestMethod.POST, value = "/trips")
     public Response acceptTrip(Trip trip);
 }

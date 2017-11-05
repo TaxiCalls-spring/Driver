@@ -15,6 +15,7 @@ import java.util.Set;
 public class Trip implements Serializable {
 
     private Long id;
+    private Driver driver;
     private Address addressFrom;
     private Address addressTo;
     private Set<Passenger> passengers;
@@ -30,16 +31,36 @@ public class Trip implements Serializable {
         return id;
     }
 
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Driver getDriver() {
+        return driver;
+    }
+
     public Address getAddressFrom() {
         return addressFrom;
+    }
+
+    public void setAddressFrom(Address addressFrom) {
+        this.addressFrom = addressFrom;
     }
 
     public Address getAddressTo() {
         return addressTo;
     }
 
+    public void setAddressTo(Address addressTo) {
+        this.addressTo = addressTo;
+    }
+
     public Set<Passenger> getPassengers() {
         return passengers;
+    }
+
+    public void setPassengers(Set<Passenger> passengers) {
+        this.passengers = passengers;
     }
 
 }

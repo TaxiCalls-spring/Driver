@@ -16,6 +16,7 @@ import java.util.logging.Level;
 import org.springframework.web.bind.annotation.RequestBody;
 
 @RestController
+@RequestMapping("/trips")
 public class TripsResource {
 
     protected static final Logger LOGGER = Logger.getLogger(TripsResource.class.getName());
@@ -32,7 +33,7 @@ public class TripsResource {
     @Autowired
     private BillingService billingService;
 
-    @RequestMapping(method = RequestMethod.POST, value = "/trips")
+    @RequestMapping(method = RequestMethod.POST)
     public Response acceptTrip(@RequestBody Trip trip) {
         LOGGER.log(Level.INFO, "acceptTrip() invoked");
         notificationService.acceptTrip(trip);
