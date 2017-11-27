@@ -23,7 +23,6 @@ public class DriverService {
 
     protected static final Logger LOGGER = Logger.getLogger(DriverService.class.getName());
 
-    @Autowired
     protected DriverRepository driverRepository;
 
     @Autowired

@@ -27,6 +27,12 @@ public class AuthenticateResource {
         LOGGER.log(Level.INFO, "createDriver invoked");
         List<Driver> drivers = driverService.getDrivers();
         for (Driver stored : drivers) {
+            if (stored.getEmail() == null) {
+                continue;
+            }
+            if (stored.getPassword() == null) {
+                continue;
+            }
             if (stored.getEmail().equals(driver.getEmail()) && stored.getPassword().equals(driver.getPassword())) {
                 return Response.successful(stored);
             }

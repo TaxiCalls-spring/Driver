@@ -1,5 +1,6 @@
 package com.taxicalls.driver.resources;
 
+import com.taxicalls.driver.model.Progress;
 import com.taxicalls.driver.model.Trip;
 import java.util.logging.Logger;
 
@@ -36,6 +37,7 @@ public class TripsResource {
     @RequestMapping(method = RequestMethod.POST)
     public Response acceptTrip(@RequestBody Trip trip) {
         LOGGER.log(Level.INFO, "acceptTrip() invoked");
+        trip.setProgress(Progress.IN_PROGRESS);
         notificationService.acceptTrip(trip);
         passengerService.acceptTrip(trip);
         billingService.acceptTrip(trip);
